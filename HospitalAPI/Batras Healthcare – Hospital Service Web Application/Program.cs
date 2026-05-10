@@ -1,30 +1,100 @@
-﻿using HospitalAPI.Models;
+﻿//using HospitalAPI.Models;
+//using Microsoft.EntityFrameworkCore;
+
+//var builder = WebApplication.CreateBuilder(args);
+
+//// 🔥 ADD SERVICES
+//builder.Services.AddControllers();
+
+//// 🔥 DB CONNECTION
+////builder.Services.AddDbContext<AppDbContext>(options =>
+////    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+//builder.Services.AddDbContext<AppDbContext>(options =>
+//    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+//// 🔥 SWAGGER (optional but useful)
+//builder.Services.AddEndpointsApiExplorer();
+//builder.Services.AddSwaggerGen();
+
+//var app = builder.Build();
+
+
+//// 🔥 AUTO CREATE ADMIN (SEED DATA)
+//using (var scope = app.Services.CreateScope())
+//{
+//    var context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+
+//    if (!context.Users.Any(u => u.Email == "admin@hospital.com"))
+//    {
+//        context.Users.Add(new User
+//        {
+//            Name = "Admin",
+//            Email = "admin@hospital.com",
+//            Password = "Admin@123",
+//            IsActive = true,
+//            Role = "Admin"
+//        });
+
+//        context.SaveChanges();
+//    }
+//}
+
+
+//// 🔥 MIDDLEWARE PIPELINE
+
+//if (app.Environment.IsDevelopment())
+//{
+//    app.UseSwagger();
+//    app.UseSwaggerUI();
+//}
+
+//app.UseHttpsRedirection();
+
+//app.UseAuthorization();
+
+//app.MapControllers();
+
+//app.Run();
+
+
+using HospitalAPI.Models;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// 🔥 ADD SERVICES
+// ===============================
+// SERVICES
+// ===============================
+
 builder.Services.AddControllers();
 
-// 🔥 DB CONNECTION
-//builder.Services.AddDbContext<AppDbContext>(options =>
-//    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseSqlite(
+        builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// 🔥 SWAGGER (optional but useful)
 builder.Services.AddEndpointsApiExplorer();
+
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
 
-// 🔥 AUTO CREATE ADMIN (SEED DATA)
+// ===============================
+// AUTO DATABASE CREATE
+// ===============================
+
 using (var scope = app.Services.CreateScope())
 {
     var context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
 
-    if (!context.Users.Any(u => u.Email == "admin@hospital.com"))
+    // 🔥 CREATE SQLITE DATABASE AUTOMATICALLY
+    context.Database.EnsureCreated();
+
+    // 🔥 CREATE ADMIN IF NOT EXISTS
+    var admin = context.Users
+        .FirstOrDefault(u => u.Email == "admin@hospital.com");
+
+    if (admin == null)
     {
         context.Users.Add(new User
         {
@@ -40,11 +110,14 @@ using (var scope = app.Services.CreateScope())
 }
 
 
-// 🔥 MIDDLEWARE PIPELINE
+// ===============================
+// MIDDLEWARE
+// ===============================
 
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
+
     app.UseSwaggerUI();
 }
 

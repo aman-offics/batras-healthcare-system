@@ -1,0 +1,86 @@
+﻿@model List<HospitalMVC.Models.Appointment>
+
+@{
+    ViewData["Title"] = "Appointments";
+}
+
+<div class="container mt-4">
+
+    <h2 class="mb-4">📅 Appointments</h2>
+
+    <input type="text" id="searchBox"
+           class="form-control mb-3"
+           placeholder="Search doctor..." />
+
+    <table class="table table-bordered table-striped">
+
+        <thead class="table-dark">
+            <tr>
+                <th>Patient</th>
+                <th>Email</th>
+                <th>Doctor</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.PatientName</td>
+                    <td>@item.Email</td>
+                    <td>@item.DoctorName</td>
+                    <td>@item.AppointmentDate.ToShortDateString()</td>
+                    <td>@item.AppointmentTime</td>
+
+                    <td>
+                        @if (item.Status == "Pending")
+                        {
+                            <span class="badge bg-warning text-dark">Pending</span>
+                        }
+                        else if (item.Status == "Approved")
+                        {
+                            <span class="badge bg-success">Approved</span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-danger">Rejected</span>
+                        }
+                    </td>
+
+                    <td>
+                        <a asp-action="UpdateStatus" asp-route-id="@item.Id" asp-route-status="Approved"
+                           class="btn btn-success btn-sm">Approve</a>
+
+                        <a asp-action="UpdateStatus" asp-route-id="@item.Id" asp-route-status="Rejected"
+                           class="btn btn-danger btn-sm">Reject</a>
+
+                        <a asp-action="Delete" asp-route-id="@item.Id"
+                           onclick="return confirm('Are you sure?')"
+                           class="btn btn-dark btn-sm">
+                            Delete
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+
+</div>
+
+
+<script>
+    document.getElementById("searchBox").addEventListener("keyup", function () {
+        var value = this.value.toLowerCase();
+
+        document.querySelectorAll("tbody tr").forEach(function (row) {
+            row.style.display =
+                row.innerText.toLowerCase().includes(value) ? "" : "none";
+        });
+    });
+</script>
+

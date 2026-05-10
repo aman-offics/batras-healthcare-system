@@ -1,0 +1,101 @@
+﻿@{
+    Layout = "_AuthLayout";
+}
+
+<div class="d-flex justify-content-center align-items-center vh-100">
+
+   
+
+    <div class="card shadow p-4" style="width:400px; border-radius:15px;">
+
+        @if (TempData["Success"] != null)
+        {
+            <div class="alert alert-success text-center">
+                @TempData["Success"]
+            </div>
+        }
+
+        <h3 class="text-center mb-4">Login 🔐</h3>
+
+        <form asp-action="Login" method="post">
+
+            <!-- EMAIL -->
+            <div class="mb-3">
+                <input name="email" class="form-control form-control-lg"
+                       placeholder="Email address or username" required />
+            </div>
+
+            <!-- PASSWORD WITH EYE -->
+            <div class="mb-3 position-relative">
+                <input id="password" name="password" type="password"
+                       class="form-control form-control-lg"
+                       placeholder="Password" required />
+
+                <i class="fa fa-eye"
+                   onclick="togglePassword(this)"
+                   style="position:absolute; right:15px; top:50%; transform:translateY(-50%); cursor:pointer;">
+                </i>
+            </div>
+
+            <!-- LOGIN BUTTON -->
+            <button class="btn btn-primary w-100 mb-3" style="height:45px; font-size:16px;">
+                Log in
+            </button>
+
+        </form>
+
+        @if (ViewBag.Error != null)
+        {
+            <div class="alert alert-danger text-center">
+                @ViewBag.Error
+            </div>
+        }
+
+        <!-- FORGOT -->
+        <div class="text-center mb-3">
+            <a href="#" class="text-decoration-none">Forgotten password?</a>
+        </div>
+
+        <hr />
+
+        <!-- REGISTER BUTTON -->
+        <div class="text-center">
+            <a asp-action="Register" class="btn btn-success w-100" style="height:45px;">
+                Create new account
+            </a>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- 🔥 JS FOR EYE TOGGLE -->
+<script>
+    function togglePassword(icon) {
+        var input = document.getElementById("password");
+
+        if (input.type === "password") {
+            input.type = "text";
+            icon.classList.remove("fa-eye");
+            icon.classList.add("fa-eye-slash");
+        } else {
+            input.type = "password";
+            icon.classList.remove("fa-eye-slash");
+            icon.classList.add("fa-eye");
+        }
+    }
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+@if (TempData["Success"] != null)
+{
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Success',
+            text: '@TempData["Success"]',
+            confirmButtonColor: '#3085d6'
+        });
+    </script>
+}

@@ -1,0 +1,163 @@
+﻿@{
+    ViewData["Title"] = "Emergency";
+}
+
+<style>
+    .hero-emergency {
+        position: relative;
+        background: url('https://images.pexels.com/photos/263402/pexels-photo-263402.jpeg');
+        background-size: cover;
+        background-position: center;
+        padding: 120px 20px;
+        border-radius: 12px;
+        overflow: hidden;
+    }
+
+        .hero-emergency::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.7);
+        }
+
+        .hero-emergency * {
+            position: relative;
+            z-index: 2;
+            color: white;
+        }
+
+    .section-space {
+        margin-top: 70px;
+    }
+
+    .card-hover {
+        transition: 0.3s;
+        border-radius: 12px;
+    }
+
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0px 12px 25px rgba(0,0,0,0.2);
+        }
+
+    .dept-img {
+        width: 100%;
+        max-height: 350px;
+        object-fit: cover;
+        border-radius: 12px;
+    }
+</style>
+
+<div class="container" style="margin-top:100px; min-height:70vh;">
+
+    <!-- HERO -->
+    <div class="hero-emergency text-center" data-aos="zoom-in">
+        <h1 class="fw-bold">24/7 Emergency Care</h1>
+        <p class="mt-3">
+            Immediate medical attention when you need it the most
+        </p>
+
+        <h4 class="mt-3">📞 Emergency: +91 98765 43210</h4>
+
+        <a asp-controller="Home" asp-action="Appointment"
+           class="btn btn-danger mt-3 px-5 py-2"
+           style="border-radius:30px;">
+            Book Emergency Appointment
+        </a>
+    </div>
+
+    <!-- INFO -->
+    <div class="text-center section-space" data-aos="fade-up">
+        <h3 class="text-primary fw-bold">Rapid Response & Critical Care</h3>
+
+        <p class="mx-auto" style="max-width:800px;">
+            Our Emergency department is designed to provide immediate and life-saving care.
+            We handle accidents, trauma cases, heart attacks, and all urgent medical conditions.
+        </p>
+
+        <p class="mx-auto" style="max-width:800px;">
+            With advanced equipment and experienced doctors, we ensure fast response,
+            accurate diagnosis, and effective treatment in critical situations.
+        </p>
+    </div>
+
+    <!-- SERVICES -->
+    <div class="row section-space text-center">
+
+        <div class="col-md-4 mb-4" data-aos="fade-up">
+            <div class="card p-4 shadow card-hover">
+                <h5 class="text-danger">Ambulance Service</h5>
+                <p>24/7 ambulance support for quick medical transport.</p>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="card p-4 shadow card-hover">
+                <h5 class="text-danger">Trauma Care</h5>
+                <p>Immediate treatment for accidents and critical injuries.</p>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="400">
+            <div class="card p-4 shadow card-hover">
+                <h5 class="text-danger">Critical Monitoring</h5>
+                <p>Advanced life-support and continuous patient monitoring.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- TEAM SECTION -->
+    <div class="row section-space align-items-center">
+
+        <div class="col-md-6" data-aos="fade-right">
+            <h4 class="text-primary fw-bold">Experienced Emergency Team</h4>
+
+            <p>
+                Our emergency team includes highly trained doctors and nurses
+                who are prepared to handle life-threatening situations at any time.
+            </p>
+
+            <p>
+                We focus on quick decision-making and immediate treatment using
+                advanced medical technologies and modern equipment.
+            </p>
+
+            <p>
+                From minor injuries to critical emergencies, we ensure every
+                patient receives timely and effective care.
+            </p>
+
+            <ul>
+                <li>✔ 24/7 Medical Staff</li>
+                <li>✔ Fast Diagnosis</li>
+                <li>✔ Immediate Treatment</li>
+                <li>✔ ICU & Critical Care Support</li>
+            </ul>
+        </div>
+
+        <div class="col-md-6 text-center" data-aos="fade-left">
+            <img src="https://images.pexels.com/photos/5452293/pexels-photo-5452293.jpeg"
+                 class="dept-img shadow">
+        </div>
+
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center section-space" data-aos="zoom-in">
+        <h4 class="fw-bold">Don’t Wait in Emergency Situations</h4>
+
+        <p class="text-muted">
+            Reach out immediately for expert emergency care and support.
+        </p>
+
+        <a asp-controller="Home" asp-action="Appointment"
+           class="btn btn-danger px-5 py-2"
+           style="border-radius:30px;">
+            Get Help Now
+        </a>
+    </div>
+
+</div>
+
+      <br />

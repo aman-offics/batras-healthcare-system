@@ -1,0 +1,175 @@
+﻿<style>
+    .dept-img {
+        width: 100%;
+        max-height: 320px; /* 🔥 reduce height */
+        object-fit: cover;
+        border-radius: 12px;
+        transition: 0.4s;
+    }
+
+        .dept-img:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 10px 25px rgba(0,0,0,0.2);
+        }
+
+    .section-space {
+        margin-top: 70px;
+    }
+</style>
+
+<div class="container" style="margin-top:100px; min-height:70vh;">
+
+    <!-- SECTION 1 -->
+    <div class="row align-items-center section-space">
+
+        <!-- TEXT -->
+        <div class="col-md-6">
+            <h3 class="text-primary fw-bold">Heart Care Excellence</h3>
+
+            <p>
+                Our cardiology department provides advanced care for heart-related diseases,
+                ensuring accurate diagnosis and effective treatment using modern medical technology.
+            </p>
+
+            <p>
+                We specialize in both preventive and emergency cardiac care, helping patients
+                maintain heart health through expert consultation and advanced treatment options.
+            </p>
+
+            <p>
+                With highly experienced cardiologists and modern equipment, we ensure every patient
+                receives personalized and high-quality care for long-term health.
+            </p>
+
+            <ul>
+                <li>✔ ECG & Heart Scan</li>
+                <li>✔ Cardiac Surgery Support</li>
+                <li>✔ Emergency Heart Care</li>
+            </ul>
+        </div>
+
+        <!-- IMAGE -->
+        <div class="col-md-6 text-center">
+            <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5"
+                 class="dept-img">
+        </div>
+    </div>
+
+
+    <!-- SECTION 2 (FIXED IMAGE ISSUE) -->
+    <div class="row align-items-center section-space">
+
+        <!-- IMAGE -->
+        <div class="col-md-6 text-center">
+            <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118"
+                 class="dept-img">
+        </div>
+
+        <!-- TEXT -->
+        <div class="col-md-6">
+            <h3 class="text-primary fw-bold">Modern Cardiac Technology</h3>
+
+            <p>
+                Our hospital is equipped with state-of-the-art diagnostic tools and advanced
+                imaging systems that help detect heart conditions early and accurately.
+            </p>
+
+            <p>
+                We use modern treatment methods to ensure faster recovery and better patient
+                outcomes, focusing on both safety and comfort.
+            </p>
+
+            <ul>
+                <li>✔ Advanced Heart Monitoring</li>
+                <li>✔ Skilled Medical Team</li>
+                <li>✔ Safe & Effective Procedures</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row align-items-center section-space">
+
+        <div class="col-md-6">
+            <h3 class="text-primary fw-bold">Comprehensive Cardiac Services</h3>
+
+            <p>
+                We offer a wide range of cardiac services designed to diagnose,
+                treat, and manage heart conditions effectively. Our approach focuses
+                on both prevention and advanced treatment.
+            </p>
+
+            <p>
+                Our team ensures each patient receives personalized care based on
+                their medical condition, lifestyle, and long-term health goals.
+            </p>
+
+            <ul>
+                <li>✔ Preventive Heart Checkups</li>
+                <li>✔ Blood Pressure Management</li>
+                <li>✔ Lifestyle & Diet Guidance</li>
+                <li>✔ Long-term Cardiac Care</li>
+            </ul>
+        </div>
+
+        <div class="col-md-6 text-center">
+            <img src="https://images.unsplash.com/photo-1584982751601-97dcc096659c"
+                 class="dept-img">
+        </div>
+
+    </div>
+
+
+    <div class="row align-items-center section-space">
+
+        <div class="col-md-6 text-center">
+            <img src="https://images.unsplash.com/photo-1584515933487-779824d29309"
+                 class="dept-img">
+        </div>
+
+        <div class="col-md-6">
+            <h3 class="text-primary fw-bold">Patient-Centered Care</h3>
+
+            <p>
+                We believe in treating every patient with compassion, respect,
+                and personalized attention. Our care extends beyond treatment
+                to ensure complete recovery and well-being.
+            </p>
+
+            <p>
+                From diagnosis to recovery, our team stays with you at every step,
+                ensuring comfort, safety, and confidence throughout your journey.
+            </p>
+
+            <ul>
+                <li>✔ Friendly Medical Staff</li>
+                <li>✔ Continuous Monitoring</li>
+                <li>✔ Safe & Comfortable Environment</li>
+            </ul>
+        </div>
+
+    </div>
+
+
+    <div class="text-center section-space">
+
+        <h3 class="fw-bold">Take the First Step Towards a Healthy Heart</h3>
+
+        <p class="text-muted">
+            Book an appointment with our specialists today and get expert care
+            for your heart health.
+        </p>
+
+        <a asp-controller="Home" asp-action="Appointment"
+           class="btn btn-primary px-5 py-2"
+           style="border-radius:30px;">
+            Book Appointment
+        </a>
+
+    </div>
+
+
+ 
+
+</div>
+
+    <br />

@@ -1,0 +1,141 @@
+﻿@{
+    ViewData["Title"] = "Orthopedics";
+}
+
+<style>
+    .dept-img {
+        width: 100%;
+        max-height: 320px;
+        object-fit: cover;
+        border-radius: 12px;
+        transition: 0.4s;
+    }
+
+        .dept-img:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 10px 25px rgba(0,0,0,0.2);
+        }
+
+    .section-space {
+        margin-top: 70px;
+    }
+</style>
+
+<div class="container" style="margin-top:100px; min-height:70vh;">
+
+    <!-- TITLE -->
+    <div class="text-center mb-5" data-aos="fade-up">
+        <h2 class="fw-bold text-primary">Orthopedics Department</h2>
+        <p class="text-muted">
+            Expert care for bones, joints, and musculoskeletal conditions.
+        </p>
+    </div>
+
+    <!-- SECTION 1 -->
+    <div class="row align-items-center section-space">
+
+        <div class="col-md-6" data-aos="fade-right">
+            <h3 class="text-primary fw-bold">Bone & Joint Care</h3>
+
+            <p>
+                Our Orthopedics department specializes in diagnosing and treating
+                conditions related to bones, joints, ligaments, and muscles.
+                We provide advanced care for injuries and chronic conditions.
+            </p>
+
+            <p>
+                Whether it’s fractures, joint pain, or mobility issues, our
+                experienced specialists ensure effective and long-lasting treatment.
+            </p>
+
+            <ul>
+                <li>✔ Fracture Treatment</li>
+                <li>✔ Joint Pain Management</li>
+                <li>✔ Sports Injury Care</li>
+            </ul>
+        </div>
+
+        <div class="col-md-6 text-center" data-aos="fade-left">
+            <img src="https://images.pexels.com/photos/8460157/pexels-photo-8460157.jpeg"
+                 class="dept-img">
+        </div>
+    </div>
+
+    <!-- SECTION 2 -->
+    <div class="row align-items-center section-space">
+
+        <div class="col-md-6 text-center" data-aos="fade-right">
+            <img src="https://images.pexels.com/photos/7089401/pexels-photo-7089401.jpeg"
+                 class="dept-img">
+        </div>
+
+        <div class="col-md-6" data-aos="fade-left">
+            <h3 class="text-primary fw-bold">Advanced Orthopedic Technology</h3>
+
+            <p>
+                We use modern imaging and surgical techniques to ensure accurate
+                diagnosis and effective treatment for orthopedic conditions.
+            </p>
+
+            <p>
+                Our goal is to help patients regain mobility and improve their
+                quality of life through advanced care.
+            </p>
+
+            <ul>
+                <li>✔ Digital X-Ray & Imaging</li>
+                <li>✔ Joint Replacement Surgery</li>
+                <li>✔ Minimally Invasive Procedures</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- SECTION 3 -->
+    <div class="row align-items-center section-space">
+
+        <div class="col-md-6" data-aos="fade-right">
+            <h3 class="text-primary fw-bold">Rehabilitation & Recovery</h3>
+
+            <p>
+                Recovery is an essential part of orthopedic care. We provide
+                comprehensive rehabilitation programs to ensure complete healing.
+            </p>
+
+            <p>
+                Our team supports patients with physiotherapy and personalized
+                recovery plans to restore strength and movement.
+            </p>
+
+            <ul>
+                <li>✔ Physiotherapy Support</li>
+                <li>✔ Post-Surgery Recovery</li>
+                <li>✔ Mobility Improvement Programs</li>
+            </ul>
+        </div>
+
+        <div class="col-md-6 text-center" data-aos="fade-left">
+            <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef"
+                 class="dept-img">
+        </div>
+    </div>
+
+    <!-- FINAL CTA -->
+    <div class="text-center section-space" data-aos="zoom-in">
+
+        <h3 class="fw-bold">Move Better, Live Better</h3>
+
+        <p class="text-muted">
+            Book an appointment with our orthopedic specialists today.
+        </p>
+
+        <a asp-controller="Home" asp-action="Appointment"
+           class="btn btn-primary px-5 py-2"
+           style="border-radius:30px;">
+            Book Appointment
+        </a>
+
+    </div>
+
+</div>
+
+        <br />

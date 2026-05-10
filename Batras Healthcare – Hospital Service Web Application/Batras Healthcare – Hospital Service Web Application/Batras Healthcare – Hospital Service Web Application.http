@@ -1,0 +1,6 @@
+@Batras_Healthcare___Hospital_Service_Web_Application_HostAddress = http://localhost:5113
+
+GET {{Batras_Healthcare___Hospital_Service_Web_Application_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

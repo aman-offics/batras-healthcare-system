@@ -1,0 +1,115 @@
+﻿@{
+    ViewData["Title"] = "Pediatrics";
+}
+
+<style>
+    .dept-img {
+        width: 100%;
+        max-height: 350px;
+        object-fit: cover;
+        border-radius: 12px;
+        transition: 0.4s;
+    }
+
+        .dept-img:hover {
+            transform: scale(1.03);
+            box-shadow: 0px 10px 25px rgba(0,0,0,0.2);
+        }
+
+    .section-space {
+        margin-top: 70px;
+    }
+
+    .card-hover {
+        transition: 0.3s;
+        border-radius: 12px;
+    }
+
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0px 10px 25px rgba(0,0,0,0.2);
+        }
+</style>
+
+<div class="container" style="margin-top:100px; min-height:70vh;">
+
+    <!-- TITLE -->
+    <div class="text-center mb-5" data-aos="fade-up">
+        <h2 class="fw-bold text-primary">Pediatrics Department</h2>
+        <p class="text-muted">
+            Specialized healthcare for infants, children, and adolescents.
+        </p>
+    </div>
+
+    <!-- TOP IMAGE -->
+    <div class="mb-5" data-aos="zoom-in">
+        <img src="https://images.pexels.com/photos/7089401/pexels-photo-7089401.jpeg"
+             class="dept-img">
+    </div>
+
+    <!-- DESCRIPTION -->
+    <div class="text-center section-space" data-aos="fade-up">
+        <h3 class="text-primary fw-bold">Child-Centered Medical Care</h3>
+
+        <p class="mx-auto" style="max-width:800px;">
+            Our Pediatrics department focuses on providing comprehensive medical care
+            for children of all ages. We ensure a safe, friendly, and comfortable
+            environment for young patients.
+        </p>
+
+        <p class="mx-auto" style="max-width:800px;">
+            From routine checkups to advanced treatments, our specialists are dedicated
+            to ensuring the health and well-being of every child.
+        </p>
+    </div>
+
+    <!-- SERVICES CARDS -->
+    <div class="row section-space text-center">
+
+        <div class="col-md-4 mb-4" data-aos="fade-up">
+            <div class="card p-4 card-hover shadow">
+                <h5 class="text-primary">Routine Checkups</h5>
+                <p>Regular health monitoring and vaccinations for children.</p>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="card p-4 card-hover shadow">
+                <h5 class="text-primary">Child Nutrition</h5>
+                <p>Guidance for healthy growth and proper nutrition.</p>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="400">
+            <div class="card p-4 card-hover shadow">
+                <h5 class="text-primary">Emergency Care</h5>
+                <p>Immediate medical attention for child health emergencies.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- EXTRA INFO -->
+    <div class="text-center section-space" data-aos="fade-up">
+        <h3 class="fw-bold text-primary">Safe & Friendly Environment</h3>
+
+        <p class="mx-auto" style="max-width:800px;">
+            We create a welcoming atmosphere where children feel comfortable
+            and parents feel confident about the care provided.
+        </p>
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center section-space" data-aos="zoom-in">
+        <h4 class="fw-bold">Ensure Your Child’s Healthy Future Today</h4>
+
+        <a asp-controller="Home" asp-action="Appointment"
+           class="btn btn-primary px-5 py-2"
+           style="border-radius:30px;">
+            Book Appointment
+        </a>
+    </div>
+
+</div>
+
+            <br />

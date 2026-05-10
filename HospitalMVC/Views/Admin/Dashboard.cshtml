@@ -1,0 +1,443 @@
+﻿
+@{
+    ViewData["Title"] = "Admin Dashboard";
+}
+
+<div class="dashboard-wrapper">
+
+    <!-- PAGE HEADER -->
+    <div class="dashboard-header" data-aos="fade-down">
+
+        <div>
+            <h1>Admin Dashboard</h1>
+            <p>
+                Monitor appointments, doctors, users and hospital activities.
+            </p>
+        </div>
+
+    </div>
+
+    <!-- STATS CARDS -->
+    <div class="row g-4 mb-5">
+
+        <!-- TOTAL USERS -->
+        <div class="col-xl-4 col-md-6" data-aos="zoom-in">
+
+            <div class="dashboard-card users-card">
+
+                <div class="card-icon">
+                    <i class="bi bi-people-fill"></i>
+                </div>
+
+                <div>
+                    <h5>Total Users</h5>
+                    <h2>@ViewBag.TotalUsers</h2>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- TOTAL DOCTORS -->
+        <div class="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="100">
+
+            <div class="dashboard-card doctors-card">
+
+                <div class="card-icon">
+                    <i class="bi bi-person-badge-fill"></i>
+                </div>
+
+                <div>
+                    <h5>Total Doctors</h5>
+                    <h2>@ViewBag.TotalDoctors</h2>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- TOTAL APPOINTMENTS -->
+        <div class="col-xl-4 col-md-6" data-aos="zoom-in" data-aos-delay="200">
+
+            <div class="dashboard-card appointments-card">
+
+                <div class="card-icon">
+                    <i class="bi bi-calendar2-check-fill"></i>
+                </div>
+
+                <div>
+                    <h5>Total Appointments</h5>
+                    <h2>@ViewBag.TotalAppointments</h2>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- PENDING -->
+        <div class="col-xl-4 col-md-6" data-aos="fade-up">
+
+            <div class="dashboard-card pending-card">
+
+                <div class="card-icon">
+                    <i class="bi bi-hourglass-split"></i>
+                </div>
+
+                <div>
+                    <h5>Pending Appointments</h5>
+                    <h2>@ViewBag.PendingAppointments</h2>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- APPROVED -->
+        <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+
+            <div class="dashboard-card approved-card">
+
+                <div class="card-icon">
+                    <i class="bi bi-check-circle-fill"></i>
+                </div>
+
+                <div>
+                    <h5>Approved Appointments</h5>
+                    <h2>@ViewBag.ApprovedAppointments</h2>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- REJECTED -->
+        <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+
+            <div class="dashboard-card rejected-card">
+
+                <div class="card-icon">
+                    <i class="bi bi-x-circle-fill"></i>
+                </div>
+
+                <div>
+                    <h5>Rejected Appointments</h5>
+                    <h2>@ViewBag.RejectedAppointments</h2>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- QUICK ACTIONS -->
+    <div class="quick-actions mb-5" data-aos="fade-up">
+
+        <h3 class="section-title">Quick Actions</h3>
+
+        <div class="row g-4 mt-2">
+
+            <div class="col-lg-4 col-md-6">
+                <a href="/Admin/Doctors" class="action-card">
+                    <i class="bi bi-person-plus-fill"></i>
+                    <span>Manage Doctors</span>
+                </a>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <a href="/Admin/Appointments" class="action-card">
+                    <i class="bi bi-calendar-week-fill"></i>
+                    <span>View Appointments</span>
+                </a>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <a href="/Home/Index" class="action-card">
+                    <i class="bi bi-globe"></i>
+                    <span>Visit Website</span>
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- RECENT APPOINTMENTS -->
+    <div class="recent-card" data-aos="fade-up">
+
+        <div class="recent-header">
+            <h3>Recent Appointments</h3>
+        </div>
+
+        <div class="table-responsive">
+
+            <table class="table align-middle mb-0">
+
+                <thead>
+                    <tr>
+                        <th>Patient</th>
+                        <th>Doctor</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    @if (ViewBag.RecentAppointments != null)
+                    {
+                        foreach (var item in ViewBag.RecentAppointments)
+                        {
+                            <tr>
+
+                                <td>@item.PatientName</td>
+
+                                <td>@item.DoctorName</td>
+
+                                <td>
+                                    @item.AppointmentDate.ToString("dd MMM yyyy")
+                                </td>
+
+                                <td>@item.AppointmentTime</td>
+
+                                <td>
+
+                                    @if (item.Status == "Approved")
+                                    {
+                                        <span class="status approved-status">
+                                            Approved
+                                        </span>
+                                    }
+                                    else if (item.Status == "Rejected")
+                                    {
+                                        <span class="status rejected-status">
+                                            Rejected
+                                        </span>
+                                    }
+                                    else
+                                    {
+                                        <span class="status pending-status">
+                                            Pending
+                                        </span>
+                                    }
+
+                                </td>
+
+                            </tr>
+                        }
+                    }
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+<style>
+
+    body {
+        background: #f4f7fb;
+    }
+
+    .dashboard-wrapper {
+        padding: 30px;
+    }
+
+    .dashboard-header h1 {
+        font-size: 42px;
+        font-weight: 800;
+        color: #0f172a;
+        margin-bottom: 8px;
+    }
+
+    .dashboard-header p {
+        color: #64748b;
+        font-size: 16px;
+    }
+
+    .dashboard-card {
+        position: relative;
+        overflow: hidden;
+        border-radius: 24px;
+        padding: 30px;
+        color: white;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        min-height: 150px;
+        transition: 0.4s ease;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+
+        .dashboard-card:hover {
+            transform: translateY(-10px) scale(1.02);
+        }
+
+        .dashboard-card h5 {
+            font-size: 17px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .dashboard-card h2 {
+            font-size: 42px;
+            font-weight: 800;
+            margin: 0;
+        }
+
+    .card-icon {
+        width: 75px;
+        height: 75px;
+        border-radius: 20px;
+        background: rgba(255,255,255,0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 34px;
+        flex-shrink: 0;
+    }
+
+    .users-card {
+        background: linear-gradient(135deg,#06b6d4,#0ea5e9);
+    }
+
+    .doctors-card {
+        background: linear-gradient(135deg,#8b5cf6,#6366f1);
+    }
+
+    .appointments-card {
+        background: linear-gradient(135deg,#14b8a6,#10b981);
+    }
+
+    .pending-card {
+        background: linear-gradient(135deg,#f59e0b,#f97316);
+    }
+
+    .approved-card {
+        background: linear-gradient(135deg,#22c55e,#16a34a);
+    }
+
+    .rejected-card {
+        background: linear-gradient(135deg,#ef4444,#dc2626);
+    }
+
+    .section-title {
+        font-size: 28px;
+        font-weight: 700;
+        color: #0f172a;
+    }
+
+    .action-card {
+        background: white;
+        border-radius: 20px;
+        padding: 28px;
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        text-decoration: none;
+        color: #0f172a;
+        font-weight: 700;
+        font-size: 18px;
+        transition: 0.4s ease;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+    }
+
+        .action-card:hover {
+            transform: translateY(-8px);
+            color: #0ea5c6;
+        }
+
+        .action-card i {
+            width: 65px;
+            height: 65px;
+            border-radius: 18px;
+            background: #ecfeff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0ea5c6;
+            font-size: 28px;
+        }
+
+    .recent-card {
+        background: white;
+        border-radius: 24px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    }
+
+    .recent-header {
+        background: linear-gradient(135deg,#0f172a,#1e293b);
+        color: white;
+        padding: 24px 30px;
+    }
+
+        .recent-header h3 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+    table thead {
+        background: #f8fafc;
+    }
+
+    table th {
+        padding: 18px !important;
+        font-size: 15px;
+        color: #334155;
+    }
+
+    table td {
+        padding: 18px !important;
+        vertical-align: middle;
+    }
+
+    .status {
+        padding: 8px 16px;
+        border-radius: 50px;
+        font-size: 13px;
+        font-weight: 700;
+    }
+
+    .approved-status {
+        background: #dcfce7;
+        color: #166534;
+    }
+
+    .pending-status {
+        background: #fef3c7;
+        color: #92400e;
+    }
+
+    .rejected-status {
+        background: #fee2e2;
+        color: #991b1b;
+    }
+
+    @@media(max-width:768px) {
+
+        .dashboard-wrapper {
+            padding: 18px;
+        }
+
+        .dashboard-header h1 {
+            font-size: 30px;
+        }
+
+        .dashboard-card {
+            padding: 24px;
+        }
+
+            .dashboard-card h2 {
+                font-size: 34px;
+            }
+    }
+
+</style>
+

@@ -1,0 +1,141 @@
+﻿@{
+    ViewData["Title"] = "Neurology";
+}
+
+<style>
+    .dept-img {
+        width: 100%;
+        max-height: 320px;
+        object-fit: cover;
+        border-radius: 12px;
+        transition: 0.4s;
+    }
+
+        .dept-img:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 10px 25px rgba(0,0,0,0.2);
+        }
+
+    .section-space {
+        margin-top: 70px;
+    }
+</style>
+
+<div class="container" style="margin-top:100px; min-height:70vh;">
+
+    <!-- TITLE -->
+    <div class="text-center mb-5" data-aos="fade-up">
+        <h2 class="fw-bold text-primary">Neurology Department</h2>
+        <p class="text-muted">
+            Expert care for brain, spine, and nervous system disorders.
+        </p>
+    </div>
+
+    <!-- SECTION 1 -->
+    <div class="row align-items-center section-space">
+
+        <div class="col-md-6" data-aos="fade-right">
+            <h3 class="text-primary fw-bold">Brain & Nervous System Care</h3>
+
+            <p>
+                Our neurology department specializes in diagnosing and treating
+                conditions related to the brain, spine, and nervous system.
+                We provide expert care using modern medical technology.
+            </p>
+
+            <p>
+                From common neurological issues to complex disorders, our team
+                ensures accurate diagnosis and effective treatment.
+            </p>
+
+            <ul>
+                <li>✔ Brain Imaging & Diagnostics</li>
+                <li>✔ Stroke Treatment</li>
+                <li>✔ Neurological Rehabilitation</li>
+            </ul>
+        </div>
+
+        <div class="col-md-6 text-center" data-aos="fade-left">
+            <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b"
+                 class="dept-img">
+        </div>
+    </div>
+
+    <!-- SECTION 2 -->
+    <div class="row align-items-center section-space">
+
+        <div class="col-md-6 text-center" data-aos="fade-right">
+            <img src="https://images.unsplash.com/photo-1581594693702-fbdc51b2763b"
+                 class="dept-img">
+        </div>
+
+        <div class="col-md-6" data-aos="fade-left">
+            <h3 class="text-primary fw-bold">Advanced Neurological Technology</h3>
+
+            <p>
+                We use state-of-the-art imaging systems and advanced diagnostic
+                tools to detect neurological conditions at an early stage.
+            </p>
+
+            <p>
+                Our modern treatment methods help improve patient recovery
+                and overall quality of life.
+            </p>
+
+            <ul>
+                <li>✔ MRI & CT Scan</li>
+                <li>✔ Expert Neurologists</li>
+                <li>✔ Modern Treatment Methods</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- SECTION 3 -->
+    <div class="row align-items-center section-space">
+
+        <div class="col-md-6" data-aos="fade-right">
+            <h3 class="text-primary fw-bold">Comprehensive Patient Care</h3>
+
+            <p>
+                We focus on personalized treatment plans for every patient,
+                ensuring continuous care from diagnosis to recovery.
+            </p>
+
+            <p>
+                Our team supports patients with rehabilitation programs
+                and long-term care management.
+            </p>
+
+            <ul>
+                <li>✔ Long-term Care</li>
+                <li>✔ Continuous Monitoring</li>
+                <li>✔ Rehabilitation Support</li>
+            </ul>
+        </div>
+
+        <div class="col-md-6 text-center" data-aos="fade-left">
+            <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d"
+                 class="dept-img">
+        </div>
+    </div>
+
+    <!-- FINAL CTA -->
+    <div class="text-center section-space" data-aos="zoom-in">
+
+        <h3 class="fw-bold">Take the First Step Towards Better Brain Health</h3>
+
+        <p class="text-muted">
+            Book an appointment with our neurology specialists today.
+        </p>
+
+        <a asp-controller="Home" asp-action="Appointment"
+           class="btn btn-primary px-5 py-2"
+           style="border-radius:30px;">
+            Book Appointment
+        </a>
+
+    </div>
+
+</div>
+
+    <br />

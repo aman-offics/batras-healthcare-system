@@ -281,7 +281,7 @@
 
         if (!doctor || !date) return;
 
-        let res = await fetch(`http://localhost:5113/api/appointment/slots?doctor=${doctor}&date=${date}`);
+        let res = await fetch(`https://batras-healthcare-system.onrender.com/api/appointment/slots?doctor=${doctor}&date=${date}`);
         let booked = await res.json();
 
         document.querySelectorAll(".slot").forEach(btn => {

@@ -23,7 +23,7 @@ public class AppointmentController : Controller
             var json = JsonSerializer.Serialize(app);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
 
-            var response = await client.PostAsync("http://localhost:5113/api/appointment/book", content);
+            var response = await client.PostAsync("https://batras-healthcare-system.onrender.com/api/appointment/book", content);
 
             if (response.IsSuccessStatusCode)
             {
@@ -43,7 +43,7 @@ public class AppointmentController : Controller
     {
         using (HttpClient client = new HttpClient())
         {
-            var res = await client.GetAsync("http://localhost:5113/api/appointment/all");
+            var res = await client.GetAsync("https://batras-healthcare-system.onrender.com/api/appointment/all");
 
             var data = await res.Content.ReadAsStringAsync();
 
@@ -67,7 +67,7 @@ public class AppointmentController : Controller
 
         using (HttpClient client = new HttpClient())
         {
-            var res = await client.GetAsync($"http://localhost:5113/api/appointment/byemail/{email}");
+            var res = await client.GetAsync($"https://batras-healthcare-system.onrender.com/api/appointment/byemail/{email}");
 
             var data = await res.Content.ReadAsStringAsync();
 

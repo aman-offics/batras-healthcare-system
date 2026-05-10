@@ -20,7 +20,7 @@ public class HomeController : Controller
         using (HttpClient client = new HttpClient())
         {
             // 🔥 GET DOCTORS FROM API
-            var res = await client.GetAsync("http://localhost:5113/api/doctor/all");
+            var res = await client.GetAsync("https://batras-healthcare-system.onrender.com/api/doctor/all");
             var data = await res.Content.ReadAsStringAsync();
 
             var doctors = JsonSerializer.Deserialize<List<Doctor>>(data, new JsonSerializerOptions
@@ -98,7 +98,7 @@ public class HomeController : Controller
         {
             var response =
                 await client.GetAsync(
-                "http://localhost:5113/api/appointment/alldoctors");
+                "https://batras-healthcare-system.onrender.com/api/appointment/alldoctors");
 
             if (!response.IsSuccessStatusCode)
             {
@@ -200,7 +200,7 @@ public class HomeController : Controller
             var json = JsonSerializer.Serialize(msg);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
 
-            var res = await client.PostAsync("http://localhost:5113/api/contact/send", content);
+            var res = await client.PostAsync("https://batras-healthcare-system.onrender.com/api/contact/send", content);
 
             if (res.IsSuccessStatusCode)
                 TempData["Success"] = "Message sent successfully!";

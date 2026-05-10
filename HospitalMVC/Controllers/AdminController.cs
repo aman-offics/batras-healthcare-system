@@ -13,7 +13,7 @@
 //            using (HttpClient client = new HttpClient())
 //            {
 //                // 🔥 USERS COUNT
-//                var userRes = await client.GetAsync("http://localhost:5113/api/user/all");
+//                var userRes = await client.GetAsync("https://batras-healthcare-system.onrender.com/api/user/all");
 //                var userData = await userRes.Content.ReadAsStringAsync();
 
 //                var users = JsonSerializer.Deserialize<List<User>>(userData, new JsonSerializerOptions
@@ -24,7 +24,7 @@
 //                ViewBag.TotalUsers = users?.Count ?? 0;
 
 //                // 🔥 APPOINTMENTS COUNT
-//                var appRes = await client.GetAsync("http://localhost:5113/api/appointment/all");
+//                var appRes = await client.GetAsync("https://batras-healthcare-system.onrender.com/api/appointment/all");
 //                var appData = await appRes.Content.ReadAsStringAsync();
 
 //                var apps = JsonSerializer.Deserialize<List<Appointment>>(appData, new JsonSerializerOptions
@@ -43,7 +43,7 @@
 //        {
 //            using (HttpClient client = new HttpClient())
 //            {
-//                var response = await client.GetAsync("http://localhost:5113/api/user/all");
+//                var response = await client.GetAsync("https://batras-healthcare-system.onrender.com/api/user/all");
 
 //                if (!response.IsSuccessStatusCode)
 //                    return View(new List<User>());
@@ -64,7 +64,7 @@
 //        {
 //            using (HttpClient client = new HttpClient())
 //            {
-//                await client.PutAsync($"http://localhost:5113/api/user/activate/{id}", null);
+//                await client.PutAsync($"https://batras-healthcare-system.onrender.com/api/user/activate/{id}", null);
 //            }
 
 //            return RedirectToAction("Users");
@@ -75,7 +75,7 @@
 //        {
 //            using (HttpClient client = new HttpClient())
 //            {
-//                await client.PutAsync($"http://localhost:5113/api/user/deactivate/{id}", null);
+//                await client.PutAsync($"https://batras-healthcare-system.onrender.com/api/user/deactivate/{id}", null);
 //            }
 
 //            return RedirectToAction("Users");
@@ -86,7 +86,7 @@
 //        {
 //            using (HttpClient client = new HttpClient())
 //            {
-//                await client.DeleteAsync($"http://localhost:5113/api/appointment/delete/{id}");
+//                await client.DeleteAsync($"https://batras-healthcare-system.onrender.com/api/appointment/delete/{id}");
 //            }
 
 //            return RedirectToAction("Dashboard");
@@ -98,7 +98,7 @@
 //            using (HttpClient client = new HttpClient())
 //            {
 //                await client.PutAsync(
-//                    $"http://localhost:5113/api/appointment/status/{id}?status={status}",
+//                    $"https://batras-healthcare-system.onrender.com/api/appointment/status/{id}?status={status}",
 //                    null);
 //            }
 
@@ -116,7 +116,7 @@
 //        {
 //            using (HttpClient client = new HttpClient())
 //            {
-//                await client.PutAsync($"http://localhost:5113/api/user/toggle/{id}", null);
+//                await client.PutAsync($"https://batras-healthcare-system.onrender.com/api/user/toggle/{id}", null);
 //            }
 
 //            return RedirectToAction("Users");
@@ -126,7 +126,7 @@
 //        {
 //            using (HttpClient client = new HttpClient())
 //            {
-//                var res = await client.GetAsync("http://localhost:5113/api/appointment/all");
+//                var res = await client.GetAsync("https://batras-healthcare-system.onrender.com/api/appointment/all");
 //                var data = await res.Content.ReadAsStringAsync();
 
 //                var list = JsonSerializer.Deserialize<List<Appointment>>(data, new JsonSerializerOptions
@@ -144,7 +144,7 @@
 //        {
 //            using (HttpClient client = new HttpClient())
 //            {
-//                var res = await client.GetAsync("http://localhost:5113/api/appointment/alldoctors");
+//                var res = await client.GetAsync("https://batras-healthcare-system.onrender.com/api/appointment/alldoctors");
 //                var data = await res.Content.ReadAsStringAsync();
 
 //                var list = JsonSerializer.Deserialize<List<Doctor>>(data, new JsonSerializerOptions
@@ -164,7 +164,7 @@
 //                var json = JsonSerializer.Serialize(doc);
 //                var content = new StringContent(json, Encoding.UTF8, "application/json");
 
-//                var res = await client.PostAsync("http://localhost:5113/api/appointment/adddoctor", content);
+//                var res = await client.PostAsync("https://batras-healthcare-system.onrender.com/api/appointment/adddoctor", content);
 
 //                if (res.IsSuccessStatusCode)
 //                    TempData["Success"] = "Doctor added successfully!";
@@ -179,7 +179,7 @@
 //        {
 //            using (HttpClient client = new HttpClient())
 //            {
-//                var res = await client.DeleteAsync($"http://localhost:5113/api/appointment/deletedoctor/{id}");
+//                var res = await client.DeleteAsync($"https://batras-healthcare-system.onrender.com/api/appointment/deletedoctor/{id}");
 
 //                if (res.IsSuccessStatusCode)
 //                    TempData["Success"] = "Doctor deleted successfully!";
@@ -198,7 +198,7 @@
 //                var json = JsonSerializer.Serialize(doc);
 //                var content = new StringContent(json, Encoding.UTF8, "application/json");
 
-//                var res = await client.PutAsync("http://localhost:5113/api/appointment/updatedoctor", content);
+//                var res = await client.PutAsync("https://batras-healthcare-system.onrender.com/api/appointment/updatedoctor", content);
 
 //                if (res.IsSuccessStatusCode)
 //                    TempData["Success"] = "Doctor updated successfully!";
@@ -214,7 +214,7 @@
 //        {
 //            using (HttpClient client = new HttpClient())
 //            {
-//                var res = await client.GetAsync("http://localhost:5113/api/contact/all");
+//                var res = await client.GetAsync("https://batras-healthcare-system.onrender.com/api/contact/all");
 
 //                var data = await res.Content.ReadAsStringAsync();
 
@@ -248,7 +248,7 @@ namespace HospitalMVC.Controllers
         //    {
         //        // USERS COUNT
         //        var userRes =
-        //            await client.GetAsync("http://localhost:5113/api/user/all");
+        //            await client.GetAsync("https://batras-healthcare-system.onrender.com/api/user/all");
 
         //        var userData =
         //            await userRes.Content.ReadAsStringAsync();
@@ -264,7 +264,7 @@ namespace HospitalMVC.Controllers
 
         //        // APPOINTMENTS COUNT
         //        var appRes =
-        //            await client.GetAsync("http://localhost:5113/api/appointment/all");
+        //            await client.GetAsync("https://batras-healthcare-system.onrender.com/api/appointment/all");
 
         //        var appData =
         //            await appRes.Content.ReadAsStringAsync();
@@ -289,7 +289,7 @@ namespace HospitalMVC.Controllers
                 // USERS
                 var usersResponse =
                     await client.GetAsync(
-                    "http://localhost:5113/api/appointment/users");
+                    "https://batras-healthcare-system.onrender.com/api/appointment/users");
 
                 var usersData =
                     await usersResponse.Content.ReadAsStringAsync();
@@ -305,7 +305,7 @@ namespace HospitalMVC.Controllers
                 // APPOINTMENTS
                 var appointmentResponse =
                     await client.GetAsync(
-                    "http://localhost:5113/api/appointment/all");
+                    "https://batras-healthcare-system.onrender.com/api/appointment/all");
 
                 var appointmentData =
                     await appointmentResponse.Content.ReadAsStringAsync();
@@ -321,7 +321,7 @@ namespace HospitalMVC.Controllers
                 // DOCTORS
                 var doctorResponse =
                     await client.GetAsync(
-                    "http://localhost:5113/api/appointment/alldoctors");
+                    "https://batras-healthcare-system.onrender.com/api/appointment/alldoctors");
 
                 var doctorData =
                     await doctorResponse.Content.ReadAsStringAsync();
@@ -370,7 +370,7 @@ namespace HospitalMVC.Controllers
             using (HttpClient client = new HttpClient())
             {
                 var response =
-                    await client.GetAsync("http://localhost:5113/api/user/all");
+                    await client.GetAsync("https://batras-healthcare-system.onrender.com/api/user/all");
 
                 if (!response.IsSuccessStatusCode)
                     return View(new List<User>());
@@ -395,7 +395,7 @@ namespace HospitalMVC.Controllers
             using (HttpClient client = new HttpClient())
             {
                 await client.PutAsync(
-                    $"http://localhost:5113/api/user/activate/{id}",
+                    $"https://batras-healthcare-system.onrender.com/api/user/activate/{id}",
                     null);
             }
 
@@ -408,7 +408,7 @@ namespace HospitalMVC.Controllers
             using (HttpClient client = new HttpClient())
             {
                 await client.PutAsync(
-                    $"http://localhost:5113/api/user/deactivate/{id}",
+                    $"https://batras-healthcare-system.onrender.com/api/user/deactivate/{id}",
                     null);
             }
 
@@ -421,7 +421,7 @@ namespace HospitalMVC.Controllers
             using (HttpClient client = new HttpClient())
             {
                 await client.DeleteAsync(
-                    $"http://localhost:5113/api/appointment/delete/{id}");
+                    $"https://batras-healthcare-system.onrender.com/api/appointment/delete/{id}");
             }
 
             return RedirectToAction("Dashboard");
@@ -433,7 +433,7 @@ namespace HospitalMVC.Controllers
             using (HttpClient client = new HttpClient())
             {
                 await client.PutAsync(
-                    $"http://localhost:5113/api/appointment/status/{id}?status={status}",
+                    $"https://batras-healthcare-system.onrender.com/api/appointment/status/{id}?status={status}",
                     null);
             }
 
@@ -454,7 +454,7 @@ namespace HospitalMVC.Controllers
             using (HttpClient client = new HttpClient())
             {
                 await client.PutAsync(
-                    $"http://localhost:5113/api/user/toggle/{id}",
+                    $"https://batras-healthcare-system.onrender.com/api/user/toggle/{id}",
                     null);
             }
 
@@ -467,7 +467,7 @@ namespace HospitalMVC.Controllers
             using (HttpClient client = new HttpClient())
             {
                 var res =
-                    await client.GetAsync("http://localhost:5113/api/appointment/all");
+                    await client.GetAsync("https://batras-healthcare-system.onrender.com/api/appointment/all");
 
                 var data =
                     await res.Content.ReadAsStringAsync();
@@ -496,7 +496,7 @@ namespace HospitalMVC.Controllers
                 {
                     var response =
                         await client.GetAsync(
-                        "http://localhost:5113/api/appointment/alldoctors");
+                        "https://batras-healthcare-system.onrender.com/api/appointment/alldoctors");
 
                     if (!response.IsSuccessStatusCode)
                     {
@@ -539,7 +539,7 @@ namespace HospitalMVC.Controllers
 
                 var res =
                     await client.PostAsync(
-                        "http://localhost:5113/api/appointment/adddoctor",
+                        "https://batras-healthcare-system.onrender.com/api/appointment/adddoctor",
                         content);
 
                 if (res.IsSuccessStatusCode)
@@ -559,7 +559,7 @@ namespace HospitalMVC.Controllers
             {
                 var res =
                     await client.DeleteAsync(
-                        $"http://localhost:5113/api/appointment/deletedoctor/{id}");
+                        $"https://batras-healthcare-system.onrender.com/api/appointment/deletedoctor/{id}");
 
                 if (res.IsSuccessStatusCode)
                     TempData["Success"] = "Doctor deleted successfully!";
@@ -586,7 +586,7 @@ namespace HospitalMVC.Controllers
 
                 var res =
                     await client.PutAsync(
-                        "http://localhost:5113/api/appointment/updatedoctor",
+                        "https://batras-healthcare-system.onrender.com/api/appointment/updatedoctor",
                         content);
 
                 if (res.IsSuccessStatusCode)
@@ -608,7 +608,7 @@ namespace HospitalMVC.Controllers
             {
                 var res =
                     await client.GetAsync(
-                        "http://localhost:5113/api/contact/all");
+                        "https://batras-healthcare-system.onrender.com/api/contact/all");
 
                 var data =
                     await res.Content.ReadAsStringAsync();
